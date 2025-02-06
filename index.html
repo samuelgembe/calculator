@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Calculator Pascal-1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div id="container">
+        <div id="top">
+            <img src="img/speaker.svg" alt="speaker icon">
+            <p>pascal-1</p>
+        </div>
+
+        <div id="screen">
+            <p id="upper-numbers"></p>
+            <p id="lower-numbers">7</p>
+        </div>
+
+        <div id="buttons-area">
+            <button class="btn clear dark-gray" id="ac-btn">AC</button>
+            <button class="btn dark-gray" id="erase-btn"><i class="bi bi-backspace-fill"></i></button>
+            <!-- <button class="btn operator dark-gray" id="percent-btn">%</button> -->
+            <button class="btn orange-btn operator" id="divide-btn">÷</button>
+
+            <button class="btn number" id="7-btn">7</button>
+            <button class="btn number" id="8-btn">8</button>
+            <button class="btn number" id="9-btn">9</button>
+            <button class="btn orange-btn operator" id="x-btn">x</button>
+
+            <button class="btn number" id="4-btn">4</button>
+            <button class="btn number" id="5-btn">5</button>
+            <button class="btn number" id="6-btn">6</button>
+            <button class="btn orange-btn operator" id="minus-btn">-</button>
+
+            <button class="btn number" id="1-btn">1</button>
+            <button class="btn number" id="2-btn">2</button>
+            <button class="btn number" id="3-btn">3</button>
+            <button class="btn orange-btn operator" id="plus-btn">+</button>
+
+            <button class="btn decimal" id="dot-btn">.</button>
+            <button class="btn number" id="0-btn">0</button>
+            <button class="btn orange-btn equal" id="equal-btn">=</button>
+
+            
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
