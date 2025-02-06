@@ -43,7 +43,7 @@
     height: 136px;
     border-radius: 8px;
     flex-direction: column;
-    padding: 20px;
+    padding: 20px 15px;
 }
 
 #upper-numbers{
@@ -62,7 +62,18 @@
     align-items: center;
     color: #FBF9FA;
     font-size: 48px;
+    transition: font-size 0.2s ease;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
 }
+
+#lower-numbers::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
 
 #buttons-area{
     margin-top: 12px;
@@ -92,7 +103,10 @@
 }
 
 .btn:active{
-    opacity: .6;
+    scale: .95;
+    -webkit-box-shadow: inset 55px 53px 174px -68px rgba(0,0,0,0.13);
+-moz-box-shadow: inset 55px 53px 174px -68px rgba(0,0,0,0.13);
+box-shadow: inset 55px 53px 174px -68px rgba(0,0,0,0.13);
 }
 
 .orange-btn{
@@ -104,3 +118,19 @@
     background-color: #A99F9F;
     color: #F2EFEE;
 }
+
+@media (max-width: 400px) {
+    #lower-numbers {
+      font-size: 42px !important; /* Base size for small screens */
+    }
+  }
+
+  #credits{
+    color: #A99F9F;
+    margin: 80px auto;
+    text-align: center;
+  }
+
+  #credits span{
+    color: #FA5728;
+  }

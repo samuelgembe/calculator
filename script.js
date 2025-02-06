@@ -96,7 +96,27 @@ allButtons.forEach(button => {
 
 
   function updateLowerDisplay() {
+    const maxLength = 9; // Reduce from 10 to 9
+    const baseSize = 48;
+    const minSize = 24;
+    
+    // Add right padding compensation
+    const containerWidth = document.getElementById('screen').offsetWidth - 30;
+    
     lowerDisplayText.textContent = currentEquation || '0';
+    
+    // Calculate required size
+    let newSize = baseSize;
+    const length = currentEquation.length;
+    
+    if (length > maxLength) {
+      // More aggressive scaling
+      newSize = Math.max(minSize, baseSize - (length - maxLength) * 4);
+    }
+    
+    // Ensure text fits within container
+    lowerDisplayText.style.fontSize = `${newSize}px`;
+    lowerDisplayText.style.transform = `translateX(${Math.min(0, containerWidth - lowerDisplayText.scrollWidth)}px)`;
   }
   
 
@@ -150,11 +170,25 @@ allButtons.forEach(button => {
 
   function handleErase(){
     currentEquation = currentEquation.slice(0, -1);
-
-    // if (currentEquation ===''){
-    //     currentEquation = '0';
-    //     isNewCalculation = true;
-    // } if (currentEquation === '0') return;
+    
+    // Reset to 0 if empty
+    if (currentEquation === '') {
+      currentEquation = '0';
+      isNewCalculation = true;
+    }
+    
+    // Remove leading zero after operator
+    const lastOperatorIndex = Math.max(
+      currentEquation.lastIndexOf('+'),
+      currentEquation.lastIndexOf('-'),
+      currentEquation.lastIndexOf('x'),
+      currentEquation.lastIndexOf('÷')
+    );
+    
+    if (lastOperatorIndex === currentEquation.length - 1) {
+      currentEquation = currentEquation.slice(0, -1);
+    }
+    
     updateLowerDisplay();
   }
 
